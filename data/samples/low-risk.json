@@ -1,0 +1,5 @@
+{
+  "location": "Mysuru",
+  "weather": { "rainfall": 12, "windSpeed": 18, "temperature": 27, "humidity": 58 },
+  "property": { "type": "RESIDENTIAL", "value": 4500000 }
+}

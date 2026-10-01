@@ -1,0 +1,5 @@
+{
+  "location": "Kochi",
+  "weather": { "rainfall": 160, "windSpeed": 78, "temperature": 29, "humidity": 91 },
+  "property": { "type": "COMMERCIAL", "value": 12000000 }
+}

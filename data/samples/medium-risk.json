@@ -1,0 +1,5 @@
+{
+  "location": "Mumbai",
+  "weather": { "rainfall": 86, "windSpeed": 34, "temperature": 29, "humidity": 82 },
+  "property": { "type": "RESIDENTIAL", "value": 6500000 }
+}
