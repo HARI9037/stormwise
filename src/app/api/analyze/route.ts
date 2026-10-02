@@ -22,14 +22,14 @@ export async function POST(request: Request) {
   let weatherStatus: { source: "manual" | "live"; provider?: string; fallback?: string } = { source: "manual" };
 
   if (source === "live") {
-    const location = typeof body.location === "string" ? body.location.trim() : "";
-    if (!location) return NextResponse.json({ error: "A location is required for live weather." }, { status: 400 });
-    const live = await fetchCurrentWeather(location);
+    const latitude = Number(body.latitude), longitude = Number(body.longitude);
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude) || latitude < -90 || latitude > 90 || longitude < -180 || longitude > 180) return NextResponse.json({ error: "Valid latitude and longitude are required for live weather." }, { status: 400 });
+    const live = await fetchCurrentWeather({ latitude, longitude });
     if (live.ok) {
       candidate = { ...body, weather: live.weather };
       weatherStatus = { source: "live", provider: live.provider };
     } else {
-      weatherStatus = { source: "manual", fallback: live.message };
+      return NextResponse.json({ error: live.message, weatherStatus: { source: "live", fallback: live.message } }, { status: 502 });
     }
   }
 

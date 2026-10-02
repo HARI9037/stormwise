@@ -6,6 +6,7 @@ export interface WeatherInput { location?: string; rainfall: number; windSpeed: 
 export interface PropertyInput { type: PropertyType; value: number; }
 export interface AnalysisInput { location: string; weather: WeatherInput; property: PropertyInput; }
 export interface RawAnalysisInput { location?: unknown; weather?: any; property?: any; [key:string]: any; }
+export interface Coordinates { latitude: number; longitude: number; }
 export interface WeatherFlags { heavyRain: boolean; highWind: boolean; extremeTemperature: boolean; highHumidity: boolean; safeWeather: boolean; combinedWeatherRisk?: boolean; damageWarning?: boolean; moderateRain: boolean; moderateWind: boolean; }
 export interface RuleEvaluation { id: string; name: string; expression: string; inputs: Record<string, boolean>; result: boolean; explanation: string; operator?: string; effect?: string; [key:string]: any; }
 export interface RiskAssessment { level: RiskLevel; reason: string; ruleId?: string; [key:string]: any; }
